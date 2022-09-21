@@ -62,19 +62,20 @@ func (c *SAPAPICaller) AsyncGetSalesPricingCondition(material, distributionChann
 }
 
 func (c *SAPAPICaller) MaterialDistChannel(material, distributionChannel string) {
-	data, err := c.callSalesPricingSrvAPIRequirementMaterialDistChannel("A_SlsPrcgCndnRecdValidity", material, distributionChannel)
+	pricingConditionValidityData, err := c.callSalesPricingSrvAPIRequirementMaterialDistChannel("A_SlsPrcgCndnRecdValidity", material, distributionChannel)
 	if err != nil {
 		c.log.Error(err)
-		return
+	} else {
+		c.log.Info(pricingConditionValidityData)
 	}
-	c.log.Info(data)
 
-	conditionRecordData, err := c.callToConditionRecord(data[0].ToConditionRecord)
+	conditionRecordData, err := c.callToConditionRecord(pricingConditionValidityData[0].ToConditionRecord)
 	if err != nil {
 		c.log.Error(err)
-		return
+	} else {
+		c.log.Info(conditionRecordData)
 	}
-	c.log.Info(conditionRecordData)
+	return
 }
 
 func (c *SAPAPICaller) callSalesPricingSrvAPIRequirementMaterialDistChannel(api, material, distributionChannel string) ([]sap_api_output_formatter.PricingConditionValidity, error) {
@@ -111,23 +112,23 @@ func (c *SAPAPICaller) callToConditionRecord(url string) (*sap_api_output_format
 }
 
 func (c *SAPAPICaller) MaterialDistChannelCustomer(material, distributionChannel, customer string) {
-	data, err := c.callSalesPricingConditionSrvAPIRequirementMaterialDistChannelCustomer("A_SlsPrcgCndnRecdValidity", material, distributionChannel, customer)
+	pricingConditionValidityData, err := c.callSalesPricingSrvAPIRequirementMaterialDistChannelCustomer("A_SlsPrcgCndnRecdValidity", material, distributionChannel, customer)
 	if err != nil {
 		c.log.Error(err)
-		return
+	} else {
+		c.log.Info(pricingConditionValidityData)
 	}
-	c.log.Info(data)
 
-	conditionRecordData, err := c.callToConditionRecord(data[0].ToConditionRecord)
+	conditionRecordData, err := c.callToConditionRecord(pricingConditionValidityData[0].ToConditionRecord)
 	if err != nil {
 		c.log.Error(err)
-		return
+	} else {
+		c.log.Info(conditionRecordData)
 	}
-	c.log.Info(conditionRecordData)
-
+	return
 }
 
-func (c *SAPAPICaller) callSalesPricingConditionSrvAPIRequirementMaterialDistChannelCustomer(api, material, distributionChannel, customer string) ([]sap_api_output_formatter.PricingConditionValidity, error) {
+func (c *SAPAPICaller) callSalesPricingSrvAPIRequirementMaterialDistChannelCustomer(api, material, distributionChannel, customer string) ([]sap_api_output_formatter.PricingConditionValidity, error) {
 	url := strings.Join([]string{c.baseURL, "API_SLSPRICINGCONDITIONRECORD_SRV", api}, "/")
 
 	param := c.getQueryWithMaterialDistChannelCustomer(map[string]string{}, material, distributionChannel, customer)
@@ -147,23 +148,23 @@ func (c *SAPAPICaller) callSalesPricingConditionSrvAPIRequirementMaterialDistCha
 }
 
 func (c *SAPAPICaller) MaterialSalesOrgDistChannel(material, salesOrganization, distributionChannel string) {
-	data, err := c.callSalesPricingConditionSrvAPIRequirementMaterialSalesOrgDistChannel("A_SlsPrcgCndnRecdValidity", material, salesOrganization, distributionChannel)
+	pricingConditionValidityData, err := c.callSalesPricingSrvAPIRequirementMaterialSalesOrgDistChannel("A_SlsPrcgCndnRecdValidity", material, salesOrganization, distributionChannel)
 	if err != nil {
 		c.log.Error(err)
-		return
+	} else {
+		c.log.Info(pricingConditionValidityData)
 	}
-	c.log.Info(data)
 
-	conditionRecordData, err := c.callToConditionRecord(data[0].ToConditionRecord)
+	conditionRecordData, err := c.callToConditionRecord(pricingConditionValidityData[0].ToConditionRecord)
 	if err != nil {
 		c.log.Error(err)
-		return
+	} else {
+		c.log.Info(conditionRecordData)
 	}
-	c.log.Info(conditionRecordData)
-
+	return
 }
 
-func (c *SAPAPICaller) callSalesPricingConditionSrvAPIRequirementMaterialSalesOrgDistChannel(api, material, salesOrganization, distributionChannel string) ([]sap_api_output_formatter.PricingConditionValidity, error) {
+func (c *SAPAPICaller) callSalesPricingSrvAPIRequirementMaterialSalesOrgDistChannel(api, material, salesOrganization, distributionChannel string) ([]sap_api_output_formatter.PricingConditionValidity, error) {
 	url := strings.Join([]string{c.baseURL, "API_SLSPRICINGCONDITIONRECORD_SRV", api}, "/")
 
 	param := c.getQueryWithMaterialSalesOrgDistChannel(map[string]string{}, material, salesOrganization, distributionChannel)
@@ -183,23 +184,23 @@ func (c *SAPAPICaller) callSalesPricingConditionSrvAPIRequirementMaterialSalesOr
 }
 
 func (c *SAPAPICaller) MaterialSalesOrgDistChannelCustomer(material, salesOrganization, distributionChannel, customer string) {
-	data, err := c.callSalesPricingConditionSrvAPIRequirementMaterialSalesOrgDistChannelCustomer("A_SlsPrcgCndnRecdValidity", material, salesOrganization, distributionChannel, customer)
+	pricingConditionValidityData, err := c.callSalesPricingSrvAPIRequirementMaterialSalesOrgDistChannelCustomer("A_SlsPrcgCndnRecdValidity", material, salesOrganization, distributionChannel, customer)
 	if err != nil {
 		c.log.Error(err)
-		return
+	} else {
+		c.log.Info(pricingConditionValidityData)
 	}
-	c.log.Info(data)
 
-	conditionRecordData, err := c.callToConditionRecord(data[0].ToConditionRecord)
+	conditionRecordData, err := c.callToConditionRecord(pricingConditionValidityData[0].ToConditionRecord)
 	if err != nil {
 		c.log.Error(err)
-		return
+	} else {
+		c.log.Info(conditionRecordData)
 	}
-	c.log.Info(conditionRecordData)
-
+	return
 }
 
-func (c *SAPAPICaller) callSalesPricingConditionSrvAPIRequirementMaterialSalesOrgDistChannelCustomer(api, material, salesOrganization, distributionChannel, customer string) ([]sap_api_output_formatter.PricingConditionValidity, error) {
+func (c *SAPAPICaller) callSalesPricingSrvAPIRequirementMaterialSalesOrgDistChannelCustomer(api, material, salesOrganization, distributionChannel, customer string) ([]sap_api_output_formatter.PricingConditionValidity, error) {
 	url := strings.Join([]string{c.baseURL, "API_SLSPRICINGCONDITIONRECORD_SRV", api}, "/")
 
 	param := c.getQueryWithMaterialSalesOrgDistChannelCustomer(map[string]string{}, material, salesOrganization, distributionChannel, customer)
