@@ -32,10 +32,10 @@ sap-api-integrations-sales-pricing-reads において、API への値入力条�
 
 ### SDC レイアウト
 
-* inputSDC.SalesPricingConditionValidity.Material（品目）
-* inputSDC.SalesPricingConditionValidity.DistributionChannel（流通チャネル）
-* inputSDC.SalesPricingConditionValidity.Customer（得意先）
-* inputSDC.SalesPricingConditionValidity.SalesOrganization（販売組織）
+* inputSDC.SlsPrcgCndnRecdValidity.Material（品目）
+* inputSDC.SlsPrcgCndnRecdValidity.DistributionChannel（流通チャネル）
+* inputSDC.SlsPrcgCndnRecdValidity.Customer（得意先）
+* inputSDC.SlsPrcgCndnRecdValidity.SalesOrganization（販売組織）
 
 ## SAP API Bussiness Hub の API の選択的コール
 
@@ -48,7 +48,7 @@ accepter において 下記の例のように、データの種別（＝APIの�
 ここでは、"MaterialDistChannel" が指定されています。    
   
 ```
-	"api_schema": "/sap.s4.beh.salespricingcondition.v1.SalesPricingCondition.Created.v1",
+	"api_schema": "SalesPricingReads",
 	"accepter": ["MaterialDistChannel"],
 	"condition_record": "",
 	"deleted": false
@@ -59,7 +59,7 @@ accepter において 下記の例のように、データの種別（＝APIの�
 全データを取得する場合、sample.json は以下のように記載します。  
 
 ```
-	"api_schema": "/sap.s4.beh.salespricingcondition.v1.SalesPricingCondition.Created.v1",
+	"api_schema": "SalesPricingReads",
 	"accepter": ["All"],
 	"condition_record": "",
 	"deleted": false

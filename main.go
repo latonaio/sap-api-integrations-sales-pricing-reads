@@ -31,10 +31,7 @@ func main() {
 	}
 
 	caller.AsyncGetSalesPricingCondition(
-		inputSDC.SalesPricingConditionValidity.Material,
-		inputSDC.SalesPricingConditionValidity.DistributionChannel,
-		inputSDC.SalesPricingConditionValidity.Customer,
-		inputSDC.SalesPricingConditionValidity.SalesOrganization,
+		inputSDC.SlsPrcgCndnRecdValidity.Material,
 		accepter,
 	)
 }
